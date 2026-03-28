@@ -1,0 +1,376 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  basicTimeStep 32
+}
+
+Viewpoint {
+  orientation -0.15000885324526123 0.1474899913834333 0.977621627415104 1.611973227624544
+  position -0.0032151945526699977 -2.3364245850270122 0.6794137264722381
+}
+
+TexturedBackground {
+}
+
+TexturedBackgroundLight {
+}
+
+RectangleArena {
+  floorSize 3 3
+  wallHeight 0.15
+}
+
+Robot {
+  translation -1.38 -1.38 0.04
+  supervisor TRUE
+  rotation 0 0 1 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6 0.6 0.6
+        roughness 0.5
+        metalness 0
+      }
+      geometry Box {
+        size 0.20 0.10 0.04
+      }
+    }
+
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.04 0.06 -0.01
+        axis 0 1 0
+      }
+      device [
+        RotationalMotor {
+          name "left wheel motor"
+          maxVelocity 20
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.04 0.06 -0.01
+        rotation 1 0 0 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 0.7
+              metalness 0
+            }
+            geometry Cylinder {
+              radius 0.03
+              height 0.02
+              subdivision 36
+            }
+          }
+        ]
+        name "left wheel"
+        boundingObject Cylinder {
+          radius 0.03
+          height 0.02
+          subdivision 36
+        }
+        physics Physics {
+          density -1
+          mass 0.1
+        }
+      }
+    }
+
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.04 -0.06 -0.01
+        axis 0 1 0
+      }
+      device [
+        RotationalMotor {
+          name "right wheel motor"
+          maxVelocity 20
+          maxTorque 100
+        }
+      ]
+      endPoint Solid {
+        translation 0.04 -0.06 -0.01
+        rotation 1 0 0 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 0.7
+              metalness 0
+            }
+            geometry Cylinder {
+              radius 0.03
+              height 0.02
+              subdivision 36
+            }
+          }
+        ]
+        name "right wheel"
+        boundingObject Cylinder {
+          radius 0.03
+          height 0.02
+          subdivision 36
+        }
+        physics Physics {
+          density -1
+          mass 0.1
+        }
+      }
+    }
+
+    Solid {
+      translation -0.09 0 -0.03
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.15 0.15 0.15
+            roughness 0.7
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.015
+          }
+        }
+      ]
+      name "rear caster"
+      boundingObject Sphere {
+        radius 0.015
+      }
+      physics Physics {
+        density -1
+        mass 0.03
+      }
+    }
+  ]
+  name "robot"
+  boundingObject Box {
+    size 0.20 0.10 0.04
+  }
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "move_forward"
+}
+
+DEF DIRT_1 Solid {
+  translation -0.70 -0.92 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_1"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
+
+DEF DIRT_2 Solid {
+  translation 0.18 -0.86 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_2"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
+
+DEF DIRT_3 Solid {
+  translation 0.92 -0.58 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_3"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
+
+DEF DIRT_4 Solid {
+  translation -0.42 -0.28 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_4"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
+
+DEF DIRT_5 Solid {
+  translation 0.62 -0.06 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_5"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
+
+DEF DIRT_6 Solid {
+  translation -0.88 0.22 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_6"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
+
+DEF DIRT_7 Solid {
+  translation 0.08 0.46 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_7"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
+
+DEF DIRT_8 Solid {
+  translation 0.96 0.74 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_8"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
+
+DEF DIRT_9 Solid {
+  translation -0.56 0.92 0.005
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        radius 0.035
+        height 0.01
+        subdivision 24
+      }
+    }
+  ]
+  name "dirt_9"
+  boundingObject Cylinder {
+    radius 0.035
+    height 0.01
+    subdivision 24
+  }
+}
